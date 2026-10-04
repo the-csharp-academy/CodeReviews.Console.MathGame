@@ -30,7 +30,7 @@ namespace Math_Game
             }
             Console.WriteLine($"Your score is {score} out of {numberOfQuestions}.");
             games.Add($"Addition - score is {score}");
-            Console.WriteLine("");
+            ConsoleHelper.Pause();
 
         }
 
@@ -63,6 +63,7 @@ namespace Math_Game
             }
             Console.WriteLine($"Your score is {score} out of {numberOfQuestions}.");
             games.Add($"Subtraction - score is {score}");
+            ConsoleHelper.Pause();
         }
     }
 
@@ -93,6 +94,7 @@ namespace Math_Game
             }
             Console.WriteLine($"Your score is {score} out of {numberOfQuestions}.");
             games.Add($"Multiplication - score is {score}");
+            ConsoleHelper.Pause();
         }
     }
 
@@ -127,7 +129,8 @@ namespace Math_Game
                 }
             }
             Console.WriteLine($"Your score is {score} out of {numberOfQuestions}.");
-            games.Add($"Division - score is {score}");
+            games.Add($"{DateTime.Now} Division - score is {score}");
+            ConsoleHelper.Pause();
         }
     }
 
@@ -147,9 +150,21 @@ namespace Math_Game
                     Console.WriteLine(game);
                 }
             }
+            ConsoleHelper.Pause();
 
         }
 
+    }
+
+    internal static class ConsoleHelper
+    {
+        public static void Pause()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Press any key to return to the main menu...");
+            Console.ReadKey(true);
+            Console.Clear();
+        }
     }
 
 }

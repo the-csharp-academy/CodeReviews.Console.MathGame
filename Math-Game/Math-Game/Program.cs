@@ -39,23 +39,23 @@ while (isPlaying)
                 Addition addition = new Addition();
                 addition.Start(games);
                 break;
-            case 2:
-                Subtraction subtraction = new Subtraction();
-                subtraction.Start(games);
-                break;
-            case 3:
-                Multiplication multiplication = new Multiplication();
-                multiplication.Start(games);
-                break;
-            case 4:
-                Division division = new Division();
-                division.Start(games);
-                break;
+        case 2:
+            Subtraction subtraction = new Subtraction();
+            subtraction.Start(games);
+            break;
+        case 3:
+            Multiplication multiplication = new Multiplication();
+            multiplication.Start(games);
+            break;
+        case 4:
+            Division division = new Division();
+            division.Start(games);
+            break;
 
-            case 5:
-                PreviousGameScore previousGameScore = new PreviousGameScore();
-                previousGameScore.Start(games);
-                break;
+        case 5:
+            PreviousGameScore previousGameScore = new PreviousGameScore();
+            previousGameScore.Start(games);
+            break;
 
         case 6:
             Console.WriteLine("Thank you for playing!");
@@ -66,6 +66,7 @@ while (isPlaying)
 
         default:
             Console.WriteLine("Invalid choice. Please try again.");
+            ConsoleHelper.Pause();
             break;
     }
 }
