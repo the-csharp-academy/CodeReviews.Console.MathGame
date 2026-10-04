@@ -1,6 +1,7 @@
 using System;
 using Math_Game;
 
+
 Console.WriteLine(@" __        __   _                               _          _   _            __  __       _   _      ____                      _ 
  \ \      / /__| | ___ ___  _ __ ___   ___     | |_ ___   | |_| |__   ___  |  \/  | __ _| |_| |__  / ___| __ _ _ __ ___   ___  | |
   \ \ /\ / / _ \ |/ __/ _ \| '_ ` _ \ / _ \    | __/ _ \  | __| '_ \ / _ \ | |\/| |/ _` | __| '_ \| |  _ / _` | '_ ` _ \ / _ \ | |
@@ -16,6 +17,9 @@ Console.WriteLine(@" __        __   _                               _          _
 Console.WriteLine("Please Enter your Name");
 string name = Console.ReadLine();
 bool isPlaying = true;
+
+var games = new List<string>();
+
 while (isPlaying)
 {
     
@@ -25,31 +29,41 @@ while (isPlaying)
     Console.WriteLine("2. Subtraction");
     Console.WriteLine("3. Multiplication");
     Console.WriteLine("4. Division");
-    Console.WriteLine("5. Exit");
+    Console.WriteLine("5. Previous Game Score");
+    Console.WriteLine("6. Exit");
 
     int choice = int.Parse(Console.ReadLine());
     switch (choice)
     {
         case 1:
-            Addition addition = new Addition();
-            addition.Start();
-            break;
-        case 2:
-            Subtraction subtraction = new Subtraction();
-            subtraction.Start();
-            break;
-        case 3:
-            Multiplication multiplication = new Multiplication();
-            multiplication.Start();
-            break;
-        case 4:
-            Division division = new Division();
-            division.Start();
-            break;
-        case 5:
+                Addition addition = new Addition();
+                addition.Start(games);
+                break;
+            case 2:
+                Subtraction subtraction = new Subtraction();
+                subtraction.Start(games);
+                break;
+            case 3:
+                Multiplication multiplication = new Multiplication();
+                multiplication.Start(games);
+                break;
+            case 4:
+                Division division = new Division();
+                division.Start(games);
+                break;
+
+            case 5:
+                PreviousGameScore previousGameScore = new PreviousGameScore();
+                previousGameScore.Start(games);
+                break;
+
+        case 6:
             Console.WriteLine("Thank you for playing!");
             isPlaying = false;
             break;
+        
+        
+
         default:
             Console.WriteLine("Invalid choice. Please try again.");
             break;

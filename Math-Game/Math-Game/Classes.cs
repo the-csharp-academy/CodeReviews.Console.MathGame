@@ -5,7 +5,7 @@ namespace Math_Game
 {
     internal class Addition
     {
-        public void Start()
+        public void Start(List<string> games)
         {
             Console.WriteLine("How many questions would you like to answer?");
             int numberOfQuestions = int.Parse(Console.ReadLine());
@@ -29,12 +29,16 @@ namespace Math_Game
                 }
             }
             Console.WriteLine($"Your score is {score} out of {numberOfQuestions}.");
+            games.Add($"Addition - score is {score}");
+            Console.WriteLine("");
+
         }
+
     }
 
     internal class Subtraction
     {
-        public void Start()
+        public void Start(List<string> games)
         {
             Console.WriteLine("How many questions would you like to answer?");
             int numberOfQuestions = int.Parse(Console.ReadLine());
@@ -58,12 +62,13 @@ namespace Math_Game
                 }
             }
             Console.WriteLine($"Your score is {score} out of {numberOfQuestions}.");
+            games.Add($"Subtraction - score is {score}");
         }
     }
 
     internal class Multiplication
     {
-        public void Start()
+        public void Start(List<string> games)
         {
             Console.WriteLine("How many questions would you like to answer?");
             int numberOfQuestions = int.Parse(Console.ReadLine());
@@ -87,12 +92,13 @@ namespace Math_Game
                 }
             }
             Console.WriteLine($"Your score is {score} out of {numberOfQuestions}.");
+            games.Add($"Multiplication - score is {score}");
         }
     }
 
     internal class Division
     {
-        public void Start()
+        public void Start(List<string> games)
         {
             Console.WriteLine("How many questions would you like to answer?");
             int numberOfQuestions = int.Parse(Console.ReadLine());
@@ -106,7 +112,7 @@ namespace Math_Game
                     num1 = random.Next(1, 100);
                     num2 = random.Next(1, 100);
                 } while (num1 % num2 != 0);
-               
+
                 int answer = num1 / num2;
                 Console.WriteLine($"What is {num1} / {num2}?");
                 int userAnswer = int.Parse(Console.ReadLine());
@@ -121,7 +127,29 @@ namespace Math_Game
                 }
             }
             Console.WriteLine($"Your score is {score} out of {numberOfQuestions}.");
+            games.Add($"Division - score is {score}");
         }
+    }
+
+    internal class PreviousGameScore
+    {
+        public void Start(List<string> games) 
+        {
+            Console.WriteLine("Here are your previous game scores:");
+            if (games.Count == 0)
+            {
+                Console.WriteLine("No games have been played yet.");
+            }
+            else
+            {
+                foreach (var game in games)
+                {
+                    Console.WriteLine(game);
+                }
+            }
+
+        }
+
     }
 
 }
