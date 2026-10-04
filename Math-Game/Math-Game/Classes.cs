@@ -7,8 +7,14 @@ namespace Math_Game
     {
         public void Start(List<string> games)
         {
-            Console.WriteLine("How many questions would you like to answer?");
+            Console.WriteLine("How many questions would you like to answer? (It must be 5 or greater than 5)");
             int numberOfQuestions = int.Parse(Console.ReadLine());
+            if(numberOfQuestions < 5)
+            {
+                Console.WriteLine("You must enter a number that is 5 or greater than 5.");
+                ConsoleHelper.Pause();
+                return;
+            }
             Random random = new Random();
             int score = 0;
             for (int i = 0; i < numberOfQuestions; i++)
@@ -29,7 +35,7 @@ namespace Math_Game
                 }
             }
             Console.WriteLine($"Your score is {score} out of {numberOfQuestions}.");
-            games.Add($"Addition - score is {score}");
+            games.Add($"Addition - score is {score}/{numberOfQuestions}");
             ConsoleHelper.Pause();
 
         }
@@ -40,15 +46,21 @@ namespace Math_Game
     {
         public void Start(List<string> games)
         {
-            Console.WriteLine("How many questions would you like to answer?");
+            Console.WriteLine("How many questions would you like to answer? (It must be 5 or greater than 5)");
             int numberOfQuestions = int.Parse(Console.ReadLine());
+            if (numberOfQuestions < 5)
+            {
+                Console.WriteLine("You must enter a number that is 5 or greater than 5.");
+                ConsoleHelper.Pause();
+                return;
+            }
             Random random = new Random();
             int score = 0;
             for (int i = 0; i < numberOfQuestions; i++)
             {
                 int num1 = random.Next(1, 100);
                 int num2 = random.Next(1, 100);
-                int answer = Math.Abs(num1 - num2);
+                int answer = (num1 - num2);
                 Console.WriteLine($"What is {num1} - {num2}?");
                 int userAnswer = int.Parse(Console.ReadLine());
                 if (userAnswer == answer)
@@ -62,7 +74,7 @@ namespace Math_Game
                 }
             }
             Console.WriteLine($"Your score is {score} out of {numberOfQuestions}.");
-            games.Add($"Subtraction - score is {score}");
+            games.Add($"Subtraction - score is {score}/{numberOfQuestions}");
             ConsoleHelper.Pause();
         }
     }
@@ -71,8 +83,14 @@ namespace Math_Game
     {
         public void Start(List<string> games)
         {
-            Console.WriteLine("How many questions would you like to answer?");
+            Console.WriteLine("How many questions would you like to answer? (It must be 5 or greater than 5)");
             int numberOfQuestions = int.Parse(Console.ReadLine());
+            if (numberOfQuestions < 5)
+            {
+                Console.WriteLine("You must enter a number that is 5 or greater than 5.");
+                ConsoleHelper.Pause();
+                return;
+            }
             Random random = new Random();
             int score = 0;
             for (int i = 0; i < numberOfQuestions; i++)
@@ -93,7 +111,7 @@ namespace Math_Game
                 }
             }
             Console.WriteLine($"Your score is {score} out of {numberOfQuestions}.");
-            games.Add($"Multiplication - score is {score}");
+            games.Add($"Multiplication - score is {score}/{numberOfQuestions}");
             ConsoleHelper.Pause();
         }
     }
@@ -102,8 +120,14 @@ namespace Math_Game
     {
         public void Start(List<string> games)
         {
-            Console.WriteLine("How many questions would you like to answer?");
+            Console.WriteLine("How many questions would you like to answer? (It must be 5 or greater than 5)");
             int numberOfQuestions = int.Parse(Console.ReadLine());
+            if (numberOfQuestions < 5)
+            {
+                Console.WriteLine("You must enter a number that is 5 or greater than 5.");
+                ConsoleHelper.Pause();
+                return;
+            }
             Random random = new Random();
             int score = 0;
             for (int i = 0; i < numberOfQuestions; i++)
@@ -111,8 +135,8 @@ namespace Math_Game
                 int num1, num2;
                 do
                 {
-                    num1 = random.Next(1, 100);
-                    num2 = random.Next(1, 100);
+                    num1 = random.Next(1, 101);
+                    num2 = random.Next(1, 101);
                 } while (num1 % num2 != 0);
 
                 int answer = num1 / num2;
@@ -129,7 +153,7 @@ namespace Math_Game
                 }
             }
             Console.WriteLine($"Your score is {score} out of {numberOfQuestions}.");
-            games.Add($"{DateTime.Now} Division - score is {score}");
+            games.Add($" Division - score is {score}/{numberOfQuestions}");
             ConsoleHelper.Pause();
         }
     }

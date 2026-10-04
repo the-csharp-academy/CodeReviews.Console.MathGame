@@ -32,9 +32,24 @@ while (isPlaying)
     Console.WriteLine("5. Previous Game Score");
     Console.WriteLine("6. Exit");
 
-    int choice = int.Parse(Console.ReadLine());
-    switch (choice)
+    int choice;
+    while (true)
     {
+        string rawInput = Console.ReadLine()?.Trim();
+        if (string.IsNullOrWhiteSpace(rawInput))
+        {
+            Console.WriteLine("Input was empty. Please enter a number between 1 and 6.");
+            continue;
+        }
+        if (!int.TryParse(rawInput, out choice) || choice < 1 || choice > 6)
+        {
+            Console.WriteLine("Invalid selection. Please enter a number between 1 and 6.");
+            continue;
+        }
+        break;
+    }
+    switch (choice) 
+    { 
         case 1:
                 Addition addition = new Addition();
                 addition.Start(games);
