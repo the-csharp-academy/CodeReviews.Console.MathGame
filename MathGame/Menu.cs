@@ -42,4 +42,24 @@ public static class Menu
 
         return operation;
     }
+    public static DifficultyLevel ChooseOperationDifficulty()
+    {
+        string? input;
+
+        Console.Clear();
+        Console.WriteLine("Choose an operation difficulty level: ");
+        Console.WriteLine("1. Easy");
+        Console.WriteLine("2. Intermediate");
+        Console.WriteLine("3. Advanced");
+        Console.Write("Enter your choise => ");
+
+        input = Console.ReadLine();
+        if (input == string.Empty || !Enum.TryParse(input, out DifficultyLevel difficultyLevel) || !Enum.IsDefined(difficultyLevel))
+        {
+            Console.WriteLine("Your input is incorrect");
+            return ChooseOperationDifficulty();
+        }
+
+        return difficultyLevel;
+    }
 }

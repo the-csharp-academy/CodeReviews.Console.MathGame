@@ -5,10 +5,13 @@ public static class Game
     private static List<int> games = [];
     private readonly static string[] mathOperators = ["+", "-", "*", "/"];
     private static readonly Random random = new();
+    private static DifficultyLevel difficultyLevel = DifficultyLevel.Easy;
 
     public static void PlayRound()
     {
         int points = 0;
+
+        difficultyLevel = Menu.ChooseOperationDifficulty();
 
         for (int i = 0; i < 5; i++)
         {
@@ -34,8 +37,23 @@ public static class Game
 
     private static (int, int) GenerateNumbers(Operation operation)
     {
-        int num1 = random.Next(0, 10);
-        int num2 = random.Next(0, 10);
+        int num1 = 0, num2 = 0;
+        switch (difficultyLevel)
+        {
+            case DifficultyLevel.Easy:
+                num1 = random.Next(0, 10);
+                num2 = random.Next(0, 10);
+                break;
+            case DifficultyLevel.Intermediate:
+                num1 = random.Next(0, 100);
+                num2 = random.Next(0, 100);
+                break;
+            case DifficultyLevel.Advanced:
+                num1 = random.Next(0, 1000);
+                num2 = random.Next(0, 1000);
+                break;
+        }
+
 
         if (operation == Operation.Division && (num2 == 0 || num1 % num2 != 0 || num1 > num2))
             return GenerateNumbers(operation);
